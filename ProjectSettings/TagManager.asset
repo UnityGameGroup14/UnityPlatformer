@@ -14,8 +14,8 @@ TagManager:
   - UI
   - wall
   - Platform
-  - 
-  - 
+  - Background
+  - Saw
   - 
   - 
   - 
@@ -41,4 +41,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3221204115
+    locked: 0
+  - name: Saw
+    uniqueID: 3441242257
+    locked: 0
+  - name: Ground
+    uniqueID: 2916961287
+    locked: 0
+  - name: wall
+    uniqueID: 4219401435
+    locked: 0
+  - name: Player
+    uniqueID: 261135959
     locked: 0
