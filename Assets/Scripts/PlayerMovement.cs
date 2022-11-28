@@ -47,12 +47,12 @@ public class PlayerMovement : MonoBehaviour
             body.velocity = new Vector2(Move * speed, body.velocity.y);
         }
 
-        if(Input.GetButtonDown("Jump") && isGrounded())
+        if(Input.GetKeyDown(KeyCode.UpArrow) && isGrounded())
         {
             anim.SetTrigger("jump");
             body.velocity = new Vector2(body.velocity.x, jumpPower);
         }
-        if(Input.GetButtonUp("Jump") && body.velocity.y > 0f)
+        if(Input.GetKeyUp(KeyCode.UpArrow) && body.velocity.y > 0f)
         {
             body.velocity = new Vector2(body.velocity.x, body.velocity.y * 0.5f);
         }
@@ -161,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
             wallJumpingCounter -= Time.deltaTime;
         }
 
-        if(Input.GetButtonDown("Jump") && wallJumpingCounter > 0f)
+        if(Input.GetKeyDown(KeyCode.UpArrow) && wallJumpingCounter > 0f)
         {
             isWallJumping = true;
             body.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
