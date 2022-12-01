@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Cherry
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Platform
   - Background
   - Saw
-  - 
+  - Cherry
   - 
   - 
   - 
@@ -56,4 +57,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 261135959
+    locked: 0
+  - name: Cherry
+    uniqueID: 274542417
     locked: 0
