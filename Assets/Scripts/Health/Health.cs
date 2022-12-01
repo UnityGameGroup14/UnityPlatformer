@@ -2,16 +2,22 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-   [SerializeField] private float startingHealth;
+   [SerializeField] public float startingHealth;
     public float currentHealth { get; private set;}
     private Animator anim;
     private bool dead;
+
+    [Header ("Components")]
+    [SerializeField] Behaviour[] components;
+                      
 
     private void Awake()
     {
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
     }
+        
+
 
     public void takeDamage(float _damage)
     {
@@ -27,17 +33,21 @@ public class Health : MonoBehaviour
             if(!dead)
             {            
             anim.SetTrigger("die");
-            GetComponent<PlayerMovement>().enabled = false;
+  
+            foreach (Behaviour component in components)
+            {
+                component.enabled = false;
+            }
+
             dead = true; 
             }
         }
     }
 
-    private void Update()
+    public void AddHealth(float _value)
     {
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            takeDamage(1);  
-        }
+        currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
     }
+
+   
 }

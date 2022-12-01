@@ -60,31 +60,14 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("run", Move != 0);
         anim.SetBool("grounded", isGrounded()); 
 
-        // wall jump logic
-        /* if(walljumpCooldown > 0.2f)
-         {
-             body.velocity = new Vector2(speed * Move, body.velocity.y);
-
-             if(onWall() && !isGrounded())
-             {
-                 body.gravityScale = 0;
-                 body.velocity = Vector2.zero;
-             }
-             else 
-                 body.gravityScale = 2;
-
-             if(Input.GetKey(KeyCode.UpArrow))       
-                 Jump();
-         }
-         else 
-             walljumpCooldown += Time.deltaTime;
-        */
+       
         wallSlide();
         wallJump();
         
         if(!isWallJumping)
         {    
             flip();
+            stopWallJumping();
         }   
     }
     
@@ -99,29 +82,6 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = localScale;
         }
     }
-    //jump method
-   /* private void Jump()
-    {
-        if(isGrounded())
-        {
-            body.velocity = new Vector2(body.velocity.x, jumpPower);
-            anim.SetTrigger("jump");
-        }
-        else if(onWall() && !isGrounded())
-        {
-            if(Move == 0)
-            {
-                body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 10,0);
-                transform.localScale = new Vector3(-Mathf.Sign(transform.localScale.x), transform.localScale.y, transform.localScale.z); 
-            }
-            else
-                body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 4,6);
-
-            walljumpCooldown = 0;
-             
-        }
-    }
-    */
 
     private bool isGrounded()
     {
@@ -182,38 +142,5 @@ public class PlayerMovement : MonoBehaviour
     {
         isWallJumping = false;
     }
-    
-    
-    /*private void OnCollisionEnter2D(Collision2D other)              //Checks if the player is touching the ground
-    {
-        if(other.gameObject.CompareTag("Ground"))
-        {
-            grounded = true;
-            //isJumping = false;
-        }
-    }
-    */ 
-
-   /* private void OnCollisionExit2D(Collision2D other)               //Checks if the player is touching the ground
-    {
-        if(other.gameObject.CompareTag("Ground"))
-        {
-            isJumping = true;
-        }
-    }
-    */
-    /*private bool isGrounded()
-    {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer); 
-        return raycastHit.collider != null;
-    }
-
-     private bool onWall()
-    {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer); 
-        return raycastHit.collider != null;
-    }
-    */
-
 
 }
