@@ -4,17 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
   - Cherry
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - ground
   - Water
   - UI
-  - wall
-  - Platform
+  - Wall
+  - 
   - Background
   - Saw
   - Cherry
