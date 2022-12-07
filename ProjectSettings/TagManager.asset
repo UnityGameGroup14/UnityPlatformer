@@ -4,20 +4,24 @@
 TagManager:
   serializedVersion: 2
   tags:
+ Level2
   - Ground
   - enemy
+ main
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ground
   - Water
   - UI
+ Level2
   - wall
   - Ground
   - Enemies
   - Player
   - 
+ main
   - 
   - 
   - 
@@ -42,4 +46,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3221204115
+    locked: 0
+  - name: Saw
+    uniqueID: 3441242257
+    locked: 0
+  - name: Ground
+    uniqueID: 2916961287
+    locked: 0
+  - name: wall
+    uniqueID: 4219401435
+    locked: 0
+  - name: Player
+    uniqueID: 261135959
+    locked: 0
+  - name: Cherry
+    uniqueID: 274542417
     locked: 0
