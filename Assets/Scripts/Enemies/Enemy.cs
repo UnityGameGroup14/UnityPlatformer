@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour
     public Animator anim;
     public int maxHealth = 100;
     int currentHealth;
+    [SerializeField] private AudioClip hurtSound;
+    [SerializeField] private AudioClip dieSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +18,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        SoundManager.instance.playSound(hurtSound);
         currentHealth -= damage;
 
         //play hurt animation
@@ -31,6 +35,7 @@ public class Enemy : MonoBehaviour
         //die animation
         anim.SetBool("die", true);
 
+        SoundManager.instance.playSound(dieSound);
         //disable enemy
         GetComponent<EnemyPatrol>().OnDisable();
         GetComponent<Collider2D>().enabled = false;

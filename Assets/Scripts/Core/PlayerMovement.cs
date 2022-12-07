@@ -27,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip walkSound;
+    
 
 
     // Start is called before the first frame update
@@ -40,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move = Input.GetAxis("Horizontal");                            
+        Move = Input.GetAxis("Horizontal");                           
         
         if(!isWallJumping)
         {
@@ -49,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.UpArrow) && isGrounded())
         {
+            SoundManager.instance.playSound(jumpSound);
             anim.SetTrigger("jump");
             body.velocity = new Vector2(body.velocity.x, jumpPower);
         }

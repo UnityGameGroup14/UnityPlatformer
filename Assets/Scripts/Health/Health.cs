@@ -7,6 +7,9 @@ public class Health : MonoBehaviour
     private Animator anim;
     private bool dead;
 
+    [SerializeField] private AudioClip hurtSound;
+    [SerializeField] private AudioClip dieSound;
+
     [Header ("Components")]
     [SerializeField] Behaviour[] components;
                       
@@ -21,6 +24,7 @@ public class Health : MonoBehaviour
 
     public void takeDamage(float _damage)
     {
+        SoundManager.instance.playSound(hurtSound);
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
         
         if(currentHealth > 0)
@@ -33,6 +37,7 @@ public class Health : MonoBehaviour
             if(!dead)
             {            
             anim.SetTrigger("die");
+            SoundManager.instance.playSound(dieSound);
   
             foreach (Behaviour component in components)
             {

@@ -14,6 +14,8 @@ public class EnemyMelee : MonoBehaviour
     [Header ("Player layer")]
     [SerializeField] private LayerMask playerLayer;
     private float cooldownTimer = Mathf.Infinity;
+
+   [SerializeField] private AudioClip attackSound;
     
     //references
     private Animator anim;
@@ -69,6 +71,6 @@ public class EnemyMelee : MonoBehaviour
     {
         if(playerInSight())
             playerHealth.takeDamage(damage);
-        
+            SoundManager.instance.playSound(attackSound);
     }
 }

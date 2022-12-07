@@ -12,6 +12,7 @@ public class PlayerCombat : MonoBehaviour
     public int attackDamage = 40;
     public float attackRate = 2f;
     float nextAttackTime = 0f;
+    [SerializeField] private AudioClip attackSound;
 
     // Update is called once per frame
     void Update()
@@ -29,6 +30,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack()
         {
+            SoundManager.instance.playSound(attackSound);
             //play attack animation
              anim.SetTrigger("attack");
             //Detect enemies in range of attack
