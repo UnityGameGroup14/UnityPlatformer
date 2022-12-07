@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Cherry
+ Level2
+  - Ground
+  - enemy
+ main
   layers:
   - Default
   - TransparentFX
@@ -12,11 +15,13 @@ TagManager:
   - ground
   - Water
   - UI
-  - Wall
+ Level2
+  - wall
+  - Ground
+  - Enemies
+  - Player
   - 
-  - Background
-  - Saw
-  - Cherry
+ main
   - 
   - 
   - 
